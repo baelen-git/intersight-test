@@ -11,13 +11,3 @@ variable "organization" {
   description = "Organization Name"
   default = "default"
 }
-
-variable "ssh_key" {
-  type = string
-  description = "The ssh_key for the IKS cluster"
-}
-
-variable "vc_password" {
-  type = string
-  description = "The password for your vCenter"
-}
