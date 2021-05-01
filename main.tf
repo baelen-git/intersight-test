@@ -17,6 +17,9 @@ data "intersight_iam_role" "device_technician" {
   name = "Device Technician"
 }
 
+data "intersight_organization_organization" "org" {
+  name = var.organization
+}
 resource "intersight_ntp_policy" "ntp1" {
   name    = "ntp1"
   enabled = true
@@ -27,6 +30,6 @@ resource "intersight_ntp_policy" "ntp1" {
   ]
   organization {
     object_type = "organization.Organization"
-    moid        = var.organization
+    moid        = data.intersight_organization_organization.org.results[0].moid
   }
 }
